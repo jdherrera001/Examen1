@@ -30,7 +30,7 @@ namespace ModeloBD
             .OnDelete(DeleteBehavior.NoAction)
             .HasForeignKey(film_actor => film_actor.ActorId);
 
-            model.Entity<Film_actor>().HasNoKey();
+            //model.Entity<Film_actor>().HasNoKey();
         }
     }
 }
