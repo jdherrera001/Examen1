@@ -40,7 +40,7 @@ namespace Consola
                 Last_Name = "Ford",
                 Last_update = new DateTime(2022, 01, 24),
             };
-            //lista de actores
+            //lista de film_actor
             Film_actor fa1 = new Film_actor()
             {
                 Actor=a1,
