@@ -60,11 +60,6 @@ namespace ModeloBD.Migrations
 
             modelBuilder.Entity("Modelo.Entidades.Film_actor", b =>
                 {
-                    b.Property<int>("Film_actorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<int>("ActorId")
                         .HasColumnType("int");
 
@@ -74,9 +69,7 @@ namespace ModeloBD.Migrations
                     b.Property<DateTime>("Last_Update")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Film_actorId");
-
-                    b.HasIndex("ActorId");
+                    b.HasKey("ActorId", "Film_Id");
 
                     b.ToTable("film_actors");
                 });

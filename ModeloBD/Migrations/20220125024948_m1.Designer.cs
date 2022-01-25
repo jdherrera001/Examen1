@@ -10,7 +10,7 @@ using ModeloBD;
 namespace ModeloBD.Migrations
 {
     [DbContext(typeof(Repositorio))]
-    [Migration("20220125023450_m1")]
+    [Migration("20220125024948_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,11 +62,6 @@ namespace ModeloBD.Migrations
 
             modelBuilder.Entity("Modelo.Entidades.Film_actor", b =>
                 {
-                    b.Property<int>("Film_actorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<int>("ActorId")
                         .HasColumnType("int");
 
@@ -76,9 +71,7 @@ namespace ModeloBD.Migrations
                     b.Property<DateTime>("Last_Update")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Film_actorId");
-
-                    b.HasIndex("ActorId");
+                    b.HasKey("ActorId", "Film_Id");
 
                     b.ToTable("film_actors");
                 });

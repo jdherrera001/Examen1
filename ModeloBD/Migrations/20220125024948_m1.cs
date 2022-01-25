@@ -40,26 +40,19 @@ namespace ModeloBD.Migrations
                 name: "film_actors",
                 columns: table => new
                 {
-                    Film_actorId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     ActorId = table.Column<int>(type: "int", nullable: false),
                     Film_Id = table.Column<int>(type: "int", nullable: false),
                     Last_Update = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_film_actors", x => x.Film_actorId);
+                    table.PrimaryKey("PK_film_actors", x => new { x.ActorId, x.Film_Id });
                     table.ForeignKey(
                         name: "FK_film_actors_actors_ActorId",
                         column: x => x.ActorId,
                         principalTable: "actors",
                         principalColumn: "ActorId");
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_film_actors_ActorId",
-                table: "film_actors",
-                column: "ActorId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

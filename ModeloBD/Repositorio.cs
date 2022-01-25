@@ -29,7 +29,9 @@ namespace ModeloBD
             .WithMany(actor => actor.Film_actors)
             .OnDelete(DeleteBehavior.NoAction)
             .HasForeignKey(film_actor => film_actor.ActorId);
-
+            //LLAVE COMPUESTA FILM_ACTOR
+            model.Entity<Film_actor>()
+                .HasKey(fa => new { fa.ActorId, fa.Film_Id });
             //model.Entity<Film_actor>().HasNoKey();
         }
     }
